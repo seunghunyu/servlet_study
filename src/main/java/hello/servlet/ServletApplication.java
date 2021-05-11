@@ -3,8 +3,11 @@ package hello.servlet;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.ServletComponentScan;
+import org.springframework.context.annotation.Bean;
+import org.springframework.web.servlet.ViewResolver;
+import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
-@ServletComponentScan
+@ServletComponentScan  //서블릿 자동등록
 @SpringBootApplication
 public class ServletApplication {
 
@@ -12,4 +15,9 @@ public class ServletApplication {
 		SpringApplication.run(ServletApplication.class, args);
 	}
 
+	/* 스프링 부트가 알아서 해줌 application.properties에 적어주면
+	@Bean
+	ViewResolver internalResourceViewResolver(){
+		return new InternalResourceViewResolver("/WEB-INF/views/",".jsp");
+	}*/
 }
